@@ -116,6 +116,35 @@ def run_git(args: list[str], cwd: Path | None = None) -> None:
     subprocess.run(["git", *args], check=True, cwd=cwd)
 
 
+def update_tasks_registry(
+    tasks_file: Path,
+    issue_number: str,
+    issue_url: str,
+    issue_title: str,
+    repo_names: list[str],
+) -> None:
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    repos_str = ", ".join(repo_names)
+    new_row = f"| {timestamp} | {issue_number} | {issue_url} | {issue_title} | {repos_str} |"
+
+    header = "| Created | Issue | URL | Title | Repos |\n| --- | --- | --- | --- | --- |"
+
+    if tasks_file.exists():
+        content = tasks_file.read_text()
+        if header.split("\n")[0] in content:
+            lines = content.splitlines()
+            header_end = 0
+            for i, line in enumerate(lines):
+                if line.startswith("| ---"):
+                    header_end = i + 1
+                    break
+            lines.insert(header_end, new_row)
+            tasks_file.write_text("\n".join(lines) + "\n")
+            return
+
+    tasks_file.write_text(f"# Tasks\n\n{header}\n\n{new_row}\n")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Create a task worktree from a GitHub issue URL.",
@@ -191,6 +220,9 @@ def main() -> None:
 
     print(f"Task created: {task_root}")
     print(f"Progress file: {progress_file}")
+
+    repo_names = [repo_name_from_url(url) for url in resolved_repos]
+    update_tasks_registry(root / "TASKS.md", issue_number, issue_url, issue_title, repo_names)
 
 
 if __name__ == "__main__":
