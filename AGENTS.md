@@ -32,3 +32,4 @@ Append new tasks to the bottom of the table. Do not remove or modify existing en
 ## Spring Development
 
 - When working on Spring Boot or Spring Framework code, check the relevant sources in the local Maven repository when applicable so implementations use current APIs and available latest features.
+- For projects using Spring Boot 4, verify approaches against current documentation and avoid outdated Spring Boot 2/3 patterns. The local Maven repository (`~/.m2/repository`) includes both jars and source artifacts, so inspect those sources when confirming available APIs or behavior.
