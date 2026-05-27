@@ -28,3 +28,7 @@ Append new tasks to the bottom of the table. Do not remove or modify existing en
 - Keep `progress.md` up to date after any significant implementation change, decision, blocker, or verification result.
 - Use concise dated entries that explain what changed and why.
 - Update `progress.md` before pausing work or handing the task back to the user.
+
+## Spring Development
+
+- When working on Spring Boot or Spring Framework code, check the relevant sources in the local Maven repository when applicable so implementations use current APIs and available latest features.
