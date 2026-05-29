@@ -2,7 +2,6 @@
 
 | Created | Issue | URL | Title | Repos |
 | --- | --- | --- | --- | --- |
-| 2026-05-30 01:14:54 | 26 | https://github.com/de1mos242/Vocavista/issues/26 | Add Spring Boot AOT cache image for faster Fly.io cold starts | Vocavista |
 | 2026-05-16 15:33:59 | 2 | https://github.com/de1mos242/Vocavista/issues/2 | Plan pronunciation video generation for words and phrases | Vocavista |
 | 2026-05-21 23:29:34 | 7 | https://github.com/de1mos242/Vocavista/issues/7 | Refactor and clean up core codebase | Vocavista |
 | 2026-05-22 22:41:51 | 9 | https://github.com/de1mos242/Vocavista/issues/9 | Combine word search, phrase generation, and pronunciation in UI | Vocavista |
@@ -15,3 +14,4 @@
 | 2026-05-29 23:12:13 | 21 | https://github.com/de1mos242/Vocavista/issues/21 | Deploy Vocavista on AWS with Terraform | Vocavista |
 | 2026-05-29 23:27:26 | 22 | https://github.com/de1mos242/Vocavista/issues/22 | Deploy Vocavista cheaply on Fly.io | Vocavista |
 | 2026-05-30 01:08:35 | 25 | https://github.com/de1mos242/Vocavista/issues/25 | Add favicon and Google OAuth app branding | Vocavista |
+| 2026-05-30 01:14:54 | 26 | https://github.com/de1mos242/Vocavista/issues/26 | Add Spring Boot AOT cache image for faster Fly.io cold starts | Vocavista |
