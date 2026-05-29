@@ -25,8 +25,8 @@ Append new tasks to the bottom of the table. Do not remove or modify existing en
 ## Progress Tracking
 
 - Every task root must contain `progress.md`, for example `tasks/123-add-google-auth/progress.md`.
-- Keep `progress.md` up to date after any significant implementation change, decision, blocker, or verification result.
-- Use concise dated entries that explain what changed and why.
+- Keep `progress.md` up to date after meaningful implementation changes, important findings, decisions, blockers, or verification results.
+- Maintain `progress.md` as a concise current-state summary of what changed, important findings, completed steps, open blockers, and verification results; do not use dated entries or keep a chronological diary of every action.
 - Update `progress.md` before pausing work or handing the task back to the user.
 
 ## Spring Development
