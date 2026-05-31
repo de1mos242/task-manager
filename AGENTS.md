@@ -22,6 +22,12 @@ After creating a new task, update `TASKS.md` in the repository root with the new
 
 Append new tasks to the bottom of the table. Do not remove or modify existing entries.
 
+## Pull Requests
+
+- When creating a pull request for task work, link the PR to the corresponding GitHub issue in the PR body.
+- Use a closing keyword such as `Fixes #123` or `Closes #123` when the PR is expected to complete the issue.
+- If the PR is partial follow-up work, include the issue URL and describe what remains instead of using a closing keyword.
+
 ## Progress Tracking
 
 - Every task root must contain `progress.md`, for example `tasks/123-add-google-auth/progress.md`.
