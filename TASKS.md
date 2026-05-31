@@ -15,3 +15,5 @@
 | 2026-05-29 23:27:26 | 22 | https://github.com/de1mos242/Vocavista/issues/22 | Deploy Vocavista cheaply on Fly.io | Vocavista |
 | 2026-05-30 01:08:35 | 25 | https://github.com/de1mos242/Vocavista/issues/25 | Add favicon and Google OAuth app branding | Vocavista |
 | 2026-05-30 01:14:54 | 26 | https://github.com/de1mos242/Vocavista/issues/26 | Add Spring Boot AOT cache image for faster Fly.io cold starts | Vocavista |
+| 2026-05-31 22:28:42 | 30 | https://github.com/de1mos242/Vocavista/issues/30 | Improve CI to verify deployment responds with 200 | Vocavista |
+| 2026-05-31 22:53:37 | 32 | https://github.com/de1mos242/Vocavista/issues/32 | Add admin user status management and restrict expensive AI APIs | Vocavista |
