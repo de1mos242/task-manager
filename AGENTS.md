@@ -29,6 +29,11 @@ Append new tasks to the bottom of the table. Do not remove or modify existing en
 - Maintain `progress.md` as a concise current-state summary of what changed, important findings, completed steps, open blockers, and verification results; do not use dated entries or keep a chronological diary of every action.
 - Update `progress.md` before pausing work or handing the task back to the user.
 
+## Production Safety
+
+- Never run commands against production environments or live deployments unless the user explicitly asks for that exact command to be executed.
+- For production commands such as deploys, migrations, scaling, secret changes, or live infrastructure operations, print the command for the user to run instead of executing it.
+
 ## Spring Development
 
 - When working on Spring Boot or Spring Framework code, check the relevant sources in the local Maven repository when applicable so implementations use current APIs and available latest features.
