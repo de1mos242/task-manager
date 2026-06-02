@@ -23,3 +23,4 @@
 | 2026-06-01 22:59:11 | 36 | https://github.com/de1mos242/Vocavista/issues/36 | Keep one Fly Machine running | Vocavista |
 | 2026-06-01 23:17:53 | 38 | https://github.com/de1mos242/Vocavista/issues/38 | Increase Fly health check grace period | Vocavista |
 | 2026-06-01 23:31:03 | 40 | https://github.com/de1mos242/Vocavista/issues/40 | Tune Hikari for Fly Machine suspension wakeups | Vocavista |
+| 2026-06-02 23:24:11 | 45 | https://github.com/de1mos242/Vocavista/issues/45 | Run CI build in PR before merging | Vocavista |

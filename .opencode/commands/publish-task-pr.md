@@ -1,0 +1,32 @@
+---
+description: Commit, push, create a task PR, and optionally watch checks
+agent: task-publisher
+subtask: true
+---
+
+Publish a task pull request using `scripts/publish-task-pr.py`.
+
+User arguments: `$ARGUMENTS`
+
+Rules:
+
+- Run from the task-manager repository root.
+- Use the script as the source of truth; do not manually duplicate its git/gh flow unless the script fails and the failure is diagnosed.
+- If `$ARGUMENTS` contains neither `--yes` nor `--dry-run`, run the script first with `--dry-run` appended and summarize the planned side effects.
+- If the user has explicitly asked to publish, or `$ARGUMENTS` includes `--yes`, run the script with `--yes`.
+- If the target repository has changes and no commit message is provided, ask for one short commit message before publishing.
+- Prefer passing `--repo-dir tasks/<task-slug>/<repo-name>` when the current directory is not the target task repository.
+- Include `--watch-checks` when the user asks to wait for CI results.
+
+Common example:
+
+```sh
+scripts/publish-task-pr.py \
+  --repo-dir tasks/45-run-ci-build-in-pr-before-merging/Vocavista \
+  --all \
+  -m "Add PR CI build workflow" \
+  --summary "Add a CI Build workflow for PRs targeting main." \
+  --verification "./mvnw --batch-mode verify" \
+  --watch-checks \
+  --yes
+```
