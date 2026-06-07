@@ -25,3 +25,4 @@
 | 2026-06-01 23:31:03 | 40 | https://github.com/de1mos242/Vocavista/issues/40 | Tune Hikari for Fly Machine suspension wakeups | Vocavista |
 | 2026-06-02 23:24:11 | 45 | https://github.com/de1mos242/Vocavista/issues/45 | Run CI build in PR before merging | Vocavista |
 | 2026-06-07 22:10:28 | 47 | https://github.com/de1mos242/Vocavista/issues/47 | Serve smaller cached pronunciation videos | Vocavista |
+| 2026-06-07 23:49:11 | 49 | https://github.com/de1mos242/Vocavista/issues/49 | Fix invalid Veo durationSeconds value | Vocavista |
