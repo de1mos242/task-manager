@@ -27,6 +27,7 @@ Append new tasks to the bottom of the table. Do not remove or modify existing en
 - When creating a pull request for task work, link the PR to the corresponding GitHub issue in the PR body.
 - Use a closing keyword such as `Fixes #123` or `Closes #123` when the PR is expected to complete the issue.
 - If the PR is partial follow-up work, include the issue URL and describe what remains instead of using a closing keyword.
+- When creating or editing GitHub issue/PR bodies with `gh`, ensure Markdown contains real line breaks. Do not pass literal `\n` sequences inside ordinary quoted `--body` strings; use a body file or shell quoting that produces actual newlines, and verify the body after editing.
 
 ## Progress Tracking
 
@@ -34,6 +35,12 @@ Append new tasks to the bottom of the table. Do not remove or modify existing en
 - Keep `progress.md` up to date after meaningful implementation changes, important findings, decisions, blockers, or verification results.
 - Maintain `progress.md` as a concise current-state summary of what changed, important findings, completed steps, open blockers, and verification results; do not use dated entries or keep a chronological diary of every action.
 - Update `progress.md` before pausing work or handing the task back to the user.
+
+## Verification
+
+- Run full relevant test/build commands directly when feasible; do not avoid full verification only because console output may be large.
+- For large-output commands, keep token usage low by reading only the last relevant lines, for example `set -o pipefail; mvn clean install | tail -30`, or delegate the command to a subagent that runs it, analyzes the result, and returns only a concise success/failure summary with key errors.
+- Do not paste or read full console output unless the bounded tail or subagent summary is insufficient to diagnose the problem.
 
 ## Production Safety
 

@@ -26,3 +26,12 @@
 | 2026-06-02 23:24:11 | 45 | https://github.com/de1mos242/Vocavista/issues/45 | Run CI build in PR before merging | Vocavista |
 | 2026-06-07 22:10:28 | 47 | https://github.com/de1mos242/Vocavista/issues/47 | Serve smaller cached pronunciation videos | Vocavista |
 | 2026-06-07 23:49:11 | 49 | https://github.com/de1mos242/Vocavista/issues/49 | Fix invalid Veo durationSeconds value | Vocavista |
+| 2026-06-08 22:39:13 | 51 | https://github.com/de1mos242/Vocavista/issues/51 | Change OpenAI words model to gpt-5.4-nano | Vocavista |
+| 2026-06-08 22:57:16 | 53 | https://github.com/de1mos242/Vocavista/issues/53 | Add Imagen-generated phrase images to pronunciation and review UI | Vocavista |
+| 2026-06-10 22:17:36 | 56 | https://github.com/de1mos242/Vocavista/issues/56 | Persist selected vocabulary before starting media generation | Vocavista |
+| 2026-06-10 22:13:36 | 55 | https://github.com/de1mos242/Vocavista/issues/55 | Clean up image generation prompt | Vocavista |
+| 2026-06-10 23:23:06 | 59 | https://github.com/de1mos242/Vocavista/issues/59 | Prevent text in generated phrase images | Vocavista |
+| 2026-06-10 23:43:54 | 61 | https://github.com/de1mos242/Vocavista/issues/61 | Deploy Vocavista on Hetzner | Vocavista |
+| 2026-06-12 22:36:11 | 62 | https://github.com/de1mos242/Vocavista/issues/62 | Refactor backend | Vocavista |
+| 2026-06-13 00:07:59 | 64 | https://github.com/de1mos242/Vocavista/issues/64 | Continue backend architecture refactoring | Vocavista |
+| 2026-06-13 18:15:21 | 65 | https://github.com/de1mos242/Vocavista/issues/65 | Move phrase image backend code out of pronunciation package | Vocavista |
