@@ -23,6 +23,8 @@ Your only publishing mechanism is `scripts/publish-task-pr.py`. Do not manually 
 Workflow:
 
 - Interpret the user's command arguments.
+- If no `--repo-dir` is provided, let the script auto-select the current task checkout or the only dirty checkout under `tasks/`; if the script reports multiple candidates, ask for `--repo-dir`.
+- Never publish from a branch with the same name as the PR base branch; report the script blocker instead of trying to work around it.
 - If neither `--yes` nor `--dry-run` is present, run the script with `--dry-run` appended and summarize the planned side effects.
 - If the user explicitly asks to publish, or arguments include `--yes`, run the script with `--yes`.
 - If the target repository has changes and no `-m` or `--message` is provided, generate one concise imperative commit message from the task diff/context and pass it as `-m`/`--message`; ask only if the target repository or intended changes are ambiguous.

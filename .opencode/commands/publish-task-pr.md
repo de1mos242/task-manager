@@ -12,6 +12,8 @@ Rules:
 
 - Run from the task-manager repository root.
 - Use the script as the source of truth; do not manually duplicate its git/gh flow unless the script fails and the failure is diagnosed.
+- If no `--repo-dir` is provided, let the script auto-select the current task checkout or the only dirty checkout under `tasks/`; if selection is ambiguous, ask for `--repo-dir`.
+- Never publish from a branch with the same name as the PR base branch; the script will reject this before committing.
 - If `$ARGUMENTS` contains neither `--yes` nor `--dry-run`, run the script first with `--dry-run` appended and summarize the planned side effects.
 - If the user has explicitly asked to publish, or `$ARGUMENTS` includes `--yes`, run the script with `--yes`.
 - If the target repository has changes and no `-m` or `--message` is provided, generate a concise imperative commit message from the task diff/context and pass it to the script; ask only if the target repository or intended changes are ambiguous.

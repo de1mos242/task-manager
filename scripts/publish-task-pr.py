@@ -59,6 +59,39 @@ def ensure_git_repo(repo_dir: Path) -> None:
         die(f"not a git repository: {repo_dir}")
 
 
+def is_git_repo(repo_dir: Path) -> bool:
+    result = run(["git", "rev-parse", "--is-inside-work-tree"], repo_dir, capture=True, check=False)
+    return result.returncode == 0 and result.stdout.strip() == "true"
+
+
+def resolve_repo_dir(provided_repo_dir: str | None) -> Path:
+    if provided_repo_dir:
+        return Path(provided_repo_dir).expanduser().resolve()
+
+    root = repo_root().resolve()
+    cwd = Path.cwd().resolve()
+    if cwd != root and is_git_repo(cwd):
+        return cwd
+
+    tasks_dir = root / "tasks"
+    dirty_task_repos = []
+    if tasks_dir.is_dir():
+        for task_dir in sorted(path for path in tasks_dir.iterdir() if path.is_dir()):
+            for repo_dir in sorted(path for path in task_dir.iterdir() if path.is_dir()):
+                if is_git_repo(repo_dir) and status_lines(repo_dir):
+                    dirty_task_repos.append(repo_dir)
+
+    if len(dirty_task_repos) == 1:
+        repo_dir = dirty_task_repos[0]
+        print(f"Auto-selected dirty task repository: {repo_dir.relative_to(root)}")
+        return repo_dir
+    if not dirty_task_repos:
+        die("could not infer task repository; pass --repo-dir tasks/<task-slug>/<repo-name>")
+
+    formatted = ", ".join(str(path.relative_to(root)) for path in dirty_task_repos)
+    die(f"multiple dirty task repositories found; pass --repo-dir. Candidates: {formatted}")
+
+
 def current_branch(repo_dir: Path) -> str:
     branch = output(["git", "branch", "--show-current"], repo_dir)
     if not branch:
@@ -103,6 +136,16 @@ def has_staged_changes(repo_dir: Path) -> bool:
 def commit_if_needed(repo_dir: Path, message: str | None, dry_run: bool) -> bool:
     if not message:
         return False
+    if dry_run:
+        if not status_lines(repo_dir):
+            print("No changes to commit.")
+            return False
+        print("== Planned commit diff ==")
+        run(["git", "diff", "--stat"], repo_dir)
+        run(["git", "diff", "--stat", "--cached"], repo_dir)
+        print()
+        run(["git", "commit", "-m", message], repo_dir, dry_run=True)
+        return True
     if not has_staged_changes(repo_dir):
         print("No staged changes to commit.")
         return False
@@ -289,7 +332,10 @@ def parse_args() -> argparse.Namespace:
         description="Commit, push, and create a GitHub PR for a task repository.",
         epilog="Use --dry-run to inspect the planned publish flow, or --yes to perform side effects.",
     )
-    parser.add_argument("--repo-dir", default=".", help="Task repository directory (default: current directory).")
+    parser.add_argument(
+        "--repo-dir",
+        help="Task repository directory. If omitted, auto-selects the current git repo or the only dirty task repo.",
+    )
     parser.add_argument("--base", default="main", help="Base branch for the PR (default: main).")
     parser.add_argument("-m", "--message", help="Commit message. If omitted, no commit is created.")
     parser.add_argument("--title", help="PR title. Defaults to commit message or HEAD subject.")
@@ -320,10 +366,12 @@ def main() -> None:
     require_command("git")
     require_command("gh")
 
-    repo_dir = Path(args.repo_dir).expanduser().resolve()
+    repo_dir = resolve_repo_dir(args.repo_dir)
     ensure_git_repo(repo_dir)
     branch = current_branch(repo_dir)
     issue = infer_issue(branch, args.issue)
+    if branch == args.base:
+        die(f"current branch '{branch}' is the PR base; pass --repo-dir for a task branch or switch branches")
 
     dirty = bool(status_lines(repo_dir))
     if dirty and not args.message:
