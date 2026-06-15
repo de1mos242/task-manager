@@ -35,3 +35,5 @@
 | 2026-06-12 22:36:11 | 62 | https://github.com/de1mos242/Vocavista/issues/62 | Refactor backend | Vocavista |
 | 2026-06-13 00:07:59 | 64 | https://github.com/de1mos242/Vocavista/issues/64 | Continue backend architecture refactoring | Vocavista |
 | 2026-06-13 18:15:21 | 65 | https://github.com/de1mos242/Vocavista/issues/65 | Move phrase image backend code out of pronunciation package | Vocavista |
+| 2026-06-15 22:36:15 | 68 | https://github.com/de1mos242/Vocavista/issues/68 | Address endpoint implementation review findings | Vocavista |
+| 2026-06-15 23:35:06 | 70 | https://github.com/de1mos242/Vocavista/issues/70 | Refactor word info storage | Vocavista |
