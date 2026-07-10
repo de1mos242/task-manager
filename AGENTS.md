@@ -39,6 +39,8 @@ Append new tasks to the bottom of the table. Do not remove or modify existing en
 ## Verification
 
 - Run full relevant test/build commands directly when feasible; do not avoid full verification only because console output may be large.
+- For Java Maven projects, do not run build or test commands directly. Delegate compilation and tests to the `java-local-pipeline` subagent, and provide exact test selectors when only specific tests should run.
+- For frontend JavaScript or TypeScript projects, do not run dependency install, build, or test commands directly. Delegate them to the `frontend-local-pipeline` subagent, and provide exact test arguments when only specific tests should run.
 - For large-output commands, keep token usage low by reading only the last relevant lines, for example `set -o pipefail; mvn clean install | tail -30`, or delegate the command to a subagent that runs it, analyzes the result, and returns only a concise success/failure summary with key errors.
 - Do not paste or read full console output unless the bounded tail or subagent summary is insufficient to diagnose the problem.
 

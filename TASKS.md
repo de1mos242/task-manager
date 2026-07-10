@@ -37,3 +37,6 @@
 | 2026-06-13 18:15:21 | 65 | https://github.com/de1mos242/Vocavista/issues/65 | Move phrase image backend code out of pronunciation package | Vocavista |
 | 2026-06-15 22:36:15 | 68 | https://github.com/de1mos242/Vocavista/issues/68 | Address endpoint implementation review findings | Vocavista |
 | 2026-06-15 23:35:06 | 70 | https://github.com/de1mos242/Vocavista/issues/70 | Refactor word info storage | Vocavista |
+| 2026-07-02 23:24:18 | 73 | https://github.com/de1mos242/Vocavista/issues/73 | Improve add-word flow with EN/RU/DE input and German meaning selection | Vocavista |
+| 2026-07-04 23:21:12 | 77 | https://github.com/de1mos242/Vocavista/issues/77 | Redesign React PWA around cinematic study deck experience | Vocavista |
+| 2026-07-04 23:11:06 | 76 | https://github.com/de1mos242/Vocavista/issues/76 | Keep generated examples and phrases tied to the selected German meaning | Vocavista |
